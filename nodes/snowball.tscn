@@ -1,7 +1,7 @@
 [gd_scene load_steps=2 format=3 uid="uid://cu5r15odopfld"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6unwy"]
-radius = 1.0
+radius = 0.121752
 
 [node name="Snowball" type="RigidBody3D"]
 
@@ -9,3 +9,4 @@ radius = 1.0
 shape = SubResource("SphereShape3D_6unwy")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
+radius = 0.1
