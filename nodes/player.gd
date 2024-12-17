@@ -1,9 +1,9 @@
+class_name Player
 extends CharacterBody3D
 
 
 const SPEED = 5.0
 const JUMP_VELOCITY = 4.5
-
 
 var snowball = preload("res://nodes/snowball.tscn")
 var sball_inst
@@ -14,6 +14,7 @@ var shoot_energy : float
 @export var TILT_UPPER_LIMIT := PI/2
 @export var TURN_DAMP = 250.0
 @export var POWER_GROWTH = 20.0
+@export var POWER_LIMIT = 50.0
 
 @onready var camera = $Camera3D
 @onready var facing = $Camera3D/Marker3D
@@ -31,9 +32,6 @@ func _unhandled_input(event):
 	# to reference input events
 	if event is InputEventMouseMotion:
 		mouse_motion += event.relative
-	
-	if event.is_action_pressed( "pause" ):
-		get_tree().quit()
 
 
 func _physics_process(delta):
@@ -45,7 +43,7 @@ func _physics_process(delta):
 	rotate_y( -mouse_motion.x / TURN_DAMP )
 	# Mouse tilt camera
 	camera.rotate_x( -mouse_motion.y / TURN_DAMP )
-	# Limit camera tilt
+	# Limit camera tilt (for some reason, clampf() doesn't work as expected)
 	if camera.rotation.x > TILT_UPPER_LIMIT:
 		camera.rotation.x = TILT_UPPER_LIMIT
 	if camera.rotation.x < TILT_LOWER_LIMIT:
@@ -80,6 +78,8 @@ func _physics_process(delta):
 		# Increase by an arbitrary amount. I'll tweak this
 		# before making it a constant
 		shoot_energy += ( POWER_GROWTH * delta )
+		if shoot_energy >= POWER_LIMIT:
+			shoot_energy = POWER_LIMIT
 	
 	# Reset rotation
 	mouse_motion = Vector2.ZERO
