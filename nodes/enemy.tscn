@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://bfph3e74nk647"]
+
+[ext_resource type="Script" path="res://nodes/enemy.gd" id="1_yvb76"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bc152"]
+height = 1.5
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_mdmvw"]
+height = 1.5
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwylf"]
+albedo_color = Color(1, 0, 0, 1)
+
+[node name="Enemy" type="CharacterBody3D"]
+script = ExtResource("1_yvb76")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_bc152")
+
+[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
+mesh = SubResource("CapsuleMesh_mdmvw")
+material = SubResource("StandardMaterial3D_wwylf")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+debug_enabled = true
+
+[node name="WaitTimer" type="Timer" parent="."]
+one_shot = true
