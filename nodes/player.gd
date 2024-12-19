@@ -2,8 +2,8 @@ class_name Player
 extends CharacterBody3D
 
 
-const SPEED = 5.0
-const JUMP_VELOCITY = 4.5
+const SPEED = 10.0
+const JUMP_VELOCITY = 5.0
 
 var snowball = preload("res://nodes/snowball.tscn")
 var sball_inst
@@ -13,7 +13,7 @@ var shoot_energy : float
 @export var TILT_LOWER_LIMIT := -PI/2
 @export var TILT_UPPER_LIMIT := PI/2
 @export var TURN_DAMP = 250.0
-@export var POWER_GROWTH = 20.0
+@export var POWER_GROWTH = 30.0
 @export var POWER_LIMIT = 50.0
 
 @onready var camera = $Camera3D
@@ -58,7 +58,6 @@ func _physics_process(delta):
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	var input_dir = Input.get_vector("move_left", "move_right", "move_forward", "move_backward")
 	var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 	if direction:
@@ -75,8 +74,7 @@ func _physics_process(delta):
 		throw_snowball() # Fire using built-up energy
 		shoot_energy = 0.0 # Reset shoot energy
 	elif Input.is_action_pressed( "shoot" ):
-		# Increase by an arbitrary amount. I'll tweak this
-		# before making it a constant
+		# Increase by an arbitrary amount
 		shoot_energy += ( POWER_GROWTH * delta )
 		if shoot_energy >= POWER_LIMIT:
 			shoot_energy = POWER_LIMIT

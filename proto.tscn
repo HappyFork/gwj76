@@ -38,11 +38,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 0)
 use_collision = true
 size = Vector3(60, 1, 60)
 
-[node name="CharacterBody3D" parent="." instance=ExtResource("1_p1d7f")]
+[node name="Player" parent="." instance=ExtResource("1_p1d7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
 [node name="Enemy" parent="." instance=ExtResource("3_0obmh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3974, -0.75, 0)
 
+[node name="Enemy2" parent="." instance=ExtResource("3_0obmh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -13.446, -0.75, 14.113)
+
 [node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_xt4sx")]
-player = NodePath("../CharacterBody3D")
+player = NodePath("../Player")

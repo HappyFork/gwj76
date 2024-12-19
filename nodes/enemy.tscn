@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bfph3e74nk647"]
+[gd_scene load_steps=8 format=3 uid="uid://bfph3e74nk647"]
 
 [ext_resource type="Script" path="res://nodes/enemy.gd" id="1_yvb76"]
+[ext_resource type="Material" uid="uid://8n6mbga7x1ur" path="res://assets/red_mat.tres" id="2_3p6iv"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bc152"]
 height = 1.5
@@ -8,8 +9,14 @@ height = 1.5
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_mdmvw"]
 height = 1.5
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wwylf"]
-albedo_color = Color(1, 0, 0, 1)
+[sub_resource type="SphereShape3D" id="SphereShape3D_lh40d"]
+radius = 6.0
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5wtkh"]
+size = Vector3(3, 3, 20)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_86vur"]
+radius = 1.0
 
 [node name="Enemy" type="CharacterBody3D"]
 script = ExtResource("1_yvb76")
@@ -19,10 +26,34 @@ shape = SubResource("CapsuleShape3D_bc152")
 
 [node name="CSGMesh3D" type="CSGMesh3D" parent="."]
 mesh = SubResource("CapsuleMesh_mdmvw")
-material = SubResource("StandardMaterial3D_wwylf")
+material = ExtResource("2_3p6iv")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
 debug_enabled = true
 
 [node name="WaitTimer" type="Timer" parent="."]
 one_shot = true
+
+[node name="Awareness" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Awareness"]
+shape = SubResource("SphereShape3D_lh40d")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Awareness"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 9)
+shape = SubResource("BoxShape3D_5wtkh")
+
+[node name="Touching" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Touching"]
+shape = SubResource("SphereShape3D_86vur")
+
+[node name="Debug" type="Label3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
+billboard = 1
+
+[connection signal="target_reached" from="NavigationAgent3D" to="." method="decide"]
+[connection signal="timeout" from="WaitTimer" to="." method="decide"]
+[connection signal="body_entered" from="Awareness" to="." method="_on_awareness_body_entered"]
+[connection signal="body_exited" from="Awareness" to="." method="_on_awareness_body_exited"]
+[connection signal="area_entered" from="Touching" to="." method="_on_touching_area_entered"]

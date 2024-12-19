@@ -1,12 +1,23 @@
-[gd_scene load_steps=2 format=3 uid="uid://cu5r15odopfld"]
+[gd_scene load_steps=4 format=3 uid="uid://cu5r15odopfld"]
+
+[ext_resource type="Script" path="res://nodes/snowball.gd" id="1_lau5j"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8rik3"]
+bounce = 0.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_6unwy"]
 radius = 0.121752
 
 [node name="Snowball" type="RigidBody3D"]
+physics_material_override = SubResource("PhysicsMaterial_8rik3")
+contact_monitor = true
+max_contacts_reported = 5
+script = ExtResource("1_lau5j")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_6unwy")
 
 [node name="CSGSphere3D" type="CSGSphere3D" parent="."]
 radius = 0.1
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
