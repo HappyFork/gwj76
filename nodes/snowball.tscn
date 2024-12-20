@@ -9,6 +9,8 @@ bounce = 0.5
 radius = 0.121752
 
 [node name="Snowball" type="RigidBody3D"]
+collision_layer = 4
+collision_mask = 4
 physics_material_override = SubResource("PhysicsMaterial_8rik3")
 contact_monitor = true
 max_contacts_reported = 5

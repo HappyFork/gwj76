@@ -2,20 +2,24 @@ class_name Enemy
 extends CharacterBody3D
 
 
+
+enum States {WAITING, WANDERING, FLEEING, RESCUING, FROZEN}
+
 const SPEED = 5.0
 const TURNSPEED = 0.03
 const BLUE : StandardMaterial3D = preload("res://assets/blue_mat.tres")
 const RED : StandardMaterial3D = preload("res://assets/red_mat.tres")
-enum States {WAITING, WANDERING, FLEEING, RESCUING, FROZEN}
+
+@export var player : Player
 
 var state : States = States.WAITING
 var aware : Array[Node3D] = []
 var rescue_target : Enemy
-var debuggy = false
 
 @onready var navagent := $NavigationAgent3D
 @onready var wtimer := $WaitTimer
 @onready var mesh := $CSGMesh3D
+
 
 
 func _ready():
@@ -50,9 +54,6 @@ func _physics_process(delta):
 				rescue_target = b
 				change_state( States.RESCUING )
 	
-	if debuggy:
-		print( "Gets this far" )
-	
 	# If the enemy is moving,
 	if state in [ States.WANDERING, States.FLEEING, States.RESCUING ]:
 		# First, check if it needs to turn
@@ -61,27 +62,38 @@ func _physics_process(delta):
 		var forward = -global_basis.z
 		var turn_angle = forward.signed_angle_to( direction, Vector3.UP )
 		if abs( turn_angle ) > 0.5:
-			#print( "Turnin'" )
-			rotate_y( clamp( turn_angle, -TURNSPEED, TURNSPEED ) )
+			if state == States.FLEEING:
+				turn_angle = clamp( turn_angle, -(TURNSPEED*2), TURNSPEED*2 )
+			else :
+				turn_angle = clamp( turn_angle, -TURNSPEED, TURNSPEED )
+			rotate_y( turn_angle )
 		# If not, it walks forwards
 		else:
-			debuggy = false
 			if position != destination:
 				look_at( destination )
+			else:
+				# If this isn't here, sometimes the enemy gets stuck
+				change_state( state )
 			rotation.x = 0.0
-			velocity = direction * SPEED
+			if state == States.FLEEING:
+				direction *= SPEED*2
+			else:
+				direction *= SPEED
+			velocity = direction
 			move_and_slide()
 
 
+
 func decide():
-	print( "Decide function running" )
+	#print( "Decide function running" )
+	if state == States.FLEEING and player in aware:
+		change_state( States.FLEEING )
+	
 	var dec = randi_range( 0, 1 )
 	match dec:
 		0:
-			print( "Decided to wait" )
 			change_state( States.WAITING )
 		1:
-			print( "Decided to wander" )
 			change_state( States.WANDERING )
 
 func change_state( new_state: int ) -> void:
@@ -98,20 +110,25 @@ func change_state( new_state: int ) -> void:
 		States.WANDERING:
 			choose_random_location()
 		States.FLEEING:
-			pass
+			choose_flee_location()
 		States.RESCUING:
 			navagent.set_target_position( rescue_target.global_position )
 		States.FROZEN:
 			mesh.set_material( BLUE )
 
 func choose_random_location():
-	print( "Choose random location function running" )
-	debuggy = true
+	#print( "Choose random location function running" )
 	var random_position = Vector3( randf_range(-25.0,25.0), -0.5, randf_range(-25.0,25.0) )
 	while random_position.distance_to( global_position ) < 5.0:
-		print( "Need to pick a new location" )
 		random_position = Vector3( randf_range(-25.0,25.0), -0.5, randf_range(-25.0,25.0) )
 	navagent.set_target_position( random_position )
+
+func choose_flee_location():
+	#print( "Choose flee location function running" )
+	var away_player = -(player.global_position - global_position) * 4
+	away_player.y = -0.5
+	navagent.set_target_position( away_player )
+
 
 
 func _on_awareness_body_entered(body: Node3D) -> void:
@@ -129,3 +146,8 @@ func _on_touching_area_entered(area: Area3D) -> void:
 	var touched = area.get_parent()
 	if touched is Enemy and touched != self and state == States.FROZEN:
 		decide()
+
+func _on_player_made_noise():
+	#print( "On player noise running" )
+	if player in aware and state not in [States.RESCUING, States.FROZEN]:
+		change_state( States.FLEEING )

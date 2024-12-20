@@ -2,18 +2,21 @@ class_name Player
 extends CharacterBody3D
 
 
+
+signal made_noise
+
 const SPEED = 10.0
 const JUMP_VELOCITY = 5.0
-
-var snowball = preload("res://nodes/snowball.tscn")
-var sball_inst
-var mouse_motion : Vector2
-var shoot_energy : float
 
 @export var TILT_LIMIT := PI/2
 @export var TURN_DAMP = 250.0
 @export var POWER_GROWTH = 30.0
 @export var POWER_LIMIT = 50.0
+
+var snowball = preload("res://nodes/snowball.tscn")
+var sball_inst
+var mouse_motion : Vector2
+var shoot_energy : float
 
 @onready var camera = $Camera3D
 @onready var facing = $Camera3D/Marker3D
@@ -63,13 +66,16 @@ func _physics_process(delta):
 	else:
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
-
+	
+	if input_dir != Vector2.ZERO:
+		made_noise.emit()
 	move_and_slide()
 	
 	# Handle shooting
 	if Input.is_action_just_released("shoot"):
 		throw_snowball() # Fire using built-up energy
 		shoot_energy = 0.0 # Reset shoot energy
+		made_noise.emit()
 	elif Input.is_action_pressed( "shoot" ):
 		# Increase by an arbitrary amount
 		shoot_energy += ( POWER_GROWTH * delta )
@@ -78,6 +84,7 @@ func _physics_process(delta):
 	
 	# Reset rotation
 	mouse_motion = Vector2.ZERO
+
 
 
 func throw_snowball():

@@ -41,8 +41,16 @@ size = Vector3(60, 1, 60)
 [node name="Player" parent="." instance=ExtResource("1_p1d7f")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5, 0)
 
-[node name="Enemy" parent="." instance=ExtResource("3_0obmh")]
+[node name="Enemy" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_0obmh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14.3974, -0.75, 0)
+player = NodePath("../Player")
+
+[node name="Enemy2" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_0obmh")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.644, -0.75, 10.206)
+player = NodePath("../Player")
 
 [node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_xt4sx")]
 player = NodePath("../Player")
+
+[connection signal="made_noise" from="Player" to="Enemy" method="_on_player_made_noise"]
+[connection signal="made_noise" from="Player" to="Enemy2" method="_on_player_made_noise"]
