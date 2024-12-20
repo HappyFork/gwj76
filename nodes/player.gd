@@ -10,8 +10,7 @@ var sball_inst
 var mouse_motion : Vector2
 var shoot_energy : float
 
-@export var TILT_LOWER_LIMIT := -PI/2
-@export var TILT_UPPER_LIMIT := PI/2
+@export var TILT_LIMIT := PI/2
 @export var TURN_DAMP = 250.0
 @export var POWER_GROWTH = 30.0
 @export var POWER_LIMIT = 50.0
@@ -25,14 +24,12 @@ func _ready():
 	# Captures mouse, no cursor visible.
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
-
 func _unhandled_input(event):
 	# Gets the vector of the mouse motion.
 	# I could do this in _physics_process() if I knew how
 	# to reference input events
 	if event is InputEventMouseMotion:
 		mouse_motion += event.relative
-
 
 func _physics_process(delta):
 	# Get joypad look axis. Overwrite mouse input
@@ -44,10 +41,10 @@ func _physics_process(delta):
 	# Mouse tilt camera
 	camera.rotate_x( -mouse_motion.y / TURN_DAMP )
 	# Limit camera tilt (for some reason, clampf() doesn't work as expected)
-	if camera.rotation.x > TILT_UPPER_LIMIT:
-		camera.rotation.x = TILT_UPPER_LIMIT
-	if camera.rotation.x < TILT_LOWER_LIMIT:
-		camera.rotation.x = TILT_LOWER_LIMIT
+	if camera.rotation.x > TILT_LIMIT:
+		camera.rotation.x = TILT_LIMIT
+	if camera.rotation.x < -TILT_LIMIT:
+		camera.rotation.x = -TILT_LIMIT
 	
 	# Add the gravity.
 	if not is_on_floor():
