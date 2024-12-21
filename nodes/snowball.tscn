@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://cu5r15odopfld"]
+[gd_scene load_steps=5 format=3 uid="uid://cu5r15odopfld"]
 
 [ext_resource type="Script" path="res://nodes/snowball.gd" id="1_lau5j"]
+[ext_resource type="PackedScene" uid="uid://cd6angangbgnf" path="res://assets/snowball.glb" id="2_ba4ha"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_8rik3"]
 bounce = 0.5
@@ -19,7 +20,7 @@ script = ExtResource("1_lau5j")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("SphereShape3D_6unwy")
 
-[node name="CSGSphere3D" type="CSGSphere3D" parent="."]
-radius = 0.1
+[node name="snowball" parent="." instance=ExtResource("2_ba4ha")]
+transform = Transform3D(0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0, 0)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

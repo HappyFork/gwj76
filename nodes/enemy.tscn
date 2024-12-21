@@ -1,12 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://bfph3e74nk647"]
 
 [ext_resource type="Script" path="res://nodes/enemy.gd" id="1_yvb76"]
-[ext_resource type="Material" uid="uid://8n6mbga7x1ur" path="res://assets/red_mat.tres" id="2_3p6iv"]
+[ext_resource type="PackedScene" uid="uid://72mr35t3b31w" path="res://assets/penguin running.glb" id="3_r5ahx"]
+[ext_resource type="PackedScene" uid="uid://bujvqqi6p8m7y" path="res://assets/penguin frozen.glb" id="4_q8r66"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_bc152"]
-height = 1.5
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_mdmvw"]
 height = 1.5
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_lh40d"]
@@ -25,12 +23,14 @@ script = ExtResource("1_yvb76")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CapsuleShape3D_bc152")
 
-[node name="CSGMesh3D" type="CSGMesh3D" parent="."]
-mesh = SubResource("CapsuleMesh_mdmvw")
-material = ExtResource("2_3p6iv")
+[node name="penguin running" parent="." instance=ExtResource("3_r5ahx")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -0.7, 0)
+
+[node name="penguin frozen" parent="." instance=ExtResource("4_q8r66")]
+transform = Transform3D(0.15, 0, 0, 0, 0.15, 0, 0, 0, 0.15, 0, -1.05, 0)
+visible = false
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
-target_desired_distance = 2.0
 debug_enabled = true
 
 [node name="WaitTimer" type="Timer" parent="."]
@@ -56,7 +56,7 @@ shape = SubResource("SphereShape3D_86vur")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0)
 billboard = 1
 
-[connection signal="target_reached" from="NavigationAgent3D" to="." method="decide"]
+[connection signal="navigation_finished" from="NavigationAgent3D" to="." method="decide"]
 [connection signal="timeout" from="WaitTimer" to="." method="decide"]
 [connection signal="body_entered" from="Awareness" to="." method="_on_awareness_body_entered"]
 [connection signal="body_exited" from="Awareness" to="." method="_on_awareness_body_exited"]

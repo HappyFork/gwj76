@@ -1,0 +1,38 @@
+[remap]
+
+importer="texture"
+type="CompressedTexture2D"
+uid="uid://fk4q3kafpesg"
+path.s3tc="res://.godot/imported/snowball_2K-snow_3_Normal.jpg-198d3621ef0ecec65a6b11c97b4e6b5c.s3tc.ctex"
+metadata={
+"imported_formats": ["s3tc_bptc"],
+"vram_texture": true
+}
+generator_parameters={
+"md5": "a2ad17db4d9133775f77d9a4449f6ea4"
+}
+
+[deps]
+
+source_file="res://assets/snowball_2K-snow_3_Normal.jpg"
+dest_files=["res://.godot/imported/snowball_2K-snow_3_Normal.jpg-198d3621ef0ecec65a6b11c97b4e6b5c.s3tc.ctex"]
+
+[params]
+
+compress/mode=2
+compress/high_quality=false
+compress/lossy_quality=0.7
+compress/hdr_compression=1
+compress/normal_map=1
+compress/channel_pack=0
+mipmaps/generate=true
+mipmaps/limit=-1
+roughness/mode=1
+roughness/src_normal="res://assets/snowball_2K-snow_3_Normal.jpg"
+process/fix_alpha_border=true
+process/premult_alpha=false
+process/normal_map_invert_y=false
+process/hdr_as_srgb=false
+process/hdr_clamp_exposure=false
+process/size_limit=0
+detect_3d/compress_to=0
