@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://bwrvbhyljaef3"
+path="res://.godot/imported/GWJ 2.1_TryAgain!.mp3-640edbf94005c68b4a209ba91af6e855.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/GWJ 2.1_TryAgain!.mp3"
+dest_files=["res://.godot/imported/GWJ 2.1_TryAgain!.mp3-640edbf94005c68b4a209ba91af6e855.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

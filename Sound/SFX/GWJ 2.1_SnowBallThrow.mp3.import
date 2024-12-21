@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://c1tjhfb4x6nod"
+path="res://.godot/imported/GWJ 2.1_SnowBallThrow.mp3-fa3bedf081f9e31db43ed19dc77cae8f.mp3str"
+
+[deps]
+
+source_file="res://Sound/SFX/GWJ 2.1_SnowBallThrow.mp3"
+dest_files=["res://.godot/imported/GWJ 2.1_SnowBallThrow.mp3-fa3bedf081f9e31db43ed19dc77cae8f.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

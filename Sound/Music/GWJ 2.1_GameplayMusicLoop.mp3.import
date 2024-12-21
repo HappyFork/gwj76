@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://l0k06vk7wcq3"
+path="res://.godot/imported/GWJ 2.1_GameplayMusicLoop.mp3-7f137b1084948508163a99cd28803e38.mp3str"
+
+[deps]
+
+source_file="res://Sound/Music/GWJ 2.1_GameplayMusicLoop.mp3"
+dest_files=["res://.godot/imported/GWJ 2.1_GameplayMusicLoop.mp3-7f137b1084948508163a99cd28803e38.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dmp7gv45pgrs7"
+path="res://.godot/imported/GWJ 2.1_MenuSelect.mp3-0b26614d40238011caa099e7a59522dd.mp3str"
+
+[deps]
+
+source_file="res://Sound/Menu/GWJ 2.1_MenuSelect.mp3"
+dest_files=["res://.godot/imported/GWJ 2.1_MenuSelect.mp3-0b26614d40238011caa099e7a59522dd.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
