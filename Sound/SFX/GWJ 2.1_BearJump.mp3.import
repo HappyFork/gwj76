@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://dq70oouwgeou7"
+path="res://.godot/imported/GWJ 2.1_BearJump.mp3-d1bfdb7ea2e4e3aaa75bec67fb22ad71.mp3str"
+
+[deps]
+
+source_file="res://Sound/SFX/GWJ 2.1_BearJump.mp3"
+dest_files=["res://.godot/imported/GWJ 2.1_BearJump.mp3-d1bfdb7ea2e4e3aaa75bec67fb22ad71.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

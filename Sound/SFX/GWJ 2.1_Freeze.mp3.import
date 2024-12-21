@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://cand01mui33s3"
+path="res://.godot/imported/GWJ 2.1_Freeze.mp3-5213717d8e95c99da19f19eb2c4afdd2.mp3str"
+
+[deps]
+
+source_file="res://Sound/SFX/GWJ 2.1_Freeze.mp3"
+dest_files=["res://.godot/imported/GWJ 2.1_Freeze.mp3-5213717d8e95c99da19f19eb2c4afdd2.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

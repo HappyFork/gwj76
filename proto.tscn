@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://cojr1fooj0wo2"]
+[gd_scene load_steps=9 format=3 uid="uid://cojr1fooj0wo2"]
 
 [ext_resource type="PackedScene" uid="uid://sdmdnnq2vfb2" path="res://nodes/player.tscn" id="1_p1d7f"]
 [ext_resource type="PackedScene" uid="uid://bfph3e74nk647" path="res://nodes/enemy.tscn" id="3_0obmh"]
 [ext_resource type="PackedScene" uid="uid://bg0qlihrqay36" path="res://nodes/ui.tscn" id="3_xt4sx"]
+[ext_resource type="AudioStream" uid="uid://l0k06vk7wcq3" path="res://Sound/Music/GWJ 2.1_GameplayMusicLoop.mp3" id="4_juuef"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_nd5hc"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -51,6 +52,13 @@ player = NodePath("../Player")
 
 [node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_xt4sx")]
 player = NodePath("../Player")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_juuef")
+volume_db = -4.0
+autoplay = true
+bus = &"Music"
+parameters/looping = true
 
 [connection signal="made_noise" from="Player" to="Enemy" method="_on_player_made_noise"]
 [connection signal="made_noise" from="Player" to="Enemy2" method="_on_player_made_noise"]
