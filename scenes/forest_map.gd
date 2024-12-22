@@ -2,7 +2,7 @@ extends Node3D
 
 
 const MENU = preload( "res://scenes/main_menu.tscn" )
-const WIN_MUSIC = preload("res://Sound/Music/GWJ 2.1_GoodGame!.mp3")
+const WIN_MUSIC = preload("res://assets/Sound/Music/GWJ 2.1_GoodGame!.mp3")
 #var start_time
 #var end_time
 @onready var ens = $Enemies

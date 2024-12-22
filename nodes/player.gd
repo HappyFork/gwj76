@@ -7,9 +7,9 @@ signal made_noise
 
 const SPEED = 10.0
 const JUMP_VELOCITY = 5.0
-const JUMP_NOISE = preload( "res://Sound/SFX/GWJ 2.1_BearJump.mp3" )
-const THROW_NOISE = preload("res://Sound/SFX/GWJ 2.1_SnowBallThrow.mp3")
-const STEP_NOISES = [preload("res://Sound/SFX/GWJ 2.1_BearStep1.mp3"),preload("res://Sound/SFX/GWJ 2.1_BearStep2.mp3")]
+const JUMP_NOISE = preload( "res://assets/Sound/SFX/GWJ 2.1_BearJump.mp3" )
+const THROW_NOISE = preload("res://assets/Sound/SFX/GWJ 2.1_SnowBallThrow.mp3")
+const STEP_NOISES = [preload("res://assets/Sound/SFX/GWJ 2.1_BearStep1.mp3"),preload("res://assets/Sound/SFX/GWJ 2.1_BearStep2.mp3")]
 
 @export var TILT_LIMIT := PI/2
 @export var TURN_DAMP = 250.0

@@ -4,8 +4,8 @@
 [ext_resource type="Script" path="res://scenes/main_menu.gd" id="1_mml81"]
 [ext_resource type="PackedScene" uid="uid://72mr35t3b31w" path="res://assets/penguin running.glb" id="2_hly64"]
 [ext_resource type="PackedScene" uid="uid://cd6angangbgnf" path="res://assets/snowball.glb" id="3_p8tu5"]
+[ext_resource type="AudioStream" path="res://Sound/Menu/GWJ 2.1_MenuMusic.mp3" id="5_6w1es"]
 [ext_resource type="Script" path="res://menus/options.gd" id="5_lkc8y"]
-[ext_resource type="AudioStream" uid="uid://xotlu6wlurpg" path="res://assets/Sound/Menu/GWJ 2.1_MenuMusic.mp3" id="6_nhxfd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_rsu70"]
 sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
@@ -73,7 +73,6 @@ offset_bottom = 423.0
 text = "Options"
 
 [node name="Options" type="ColorRect" parent="CanvasLayer"]
-visible = false
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
@@ -171,7 +170,7 @@ grow_horizontal = 0
 text = " x "
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("6_nhxfd")
+stream = ExtResource("5_6w1es")
 autoplay = true
 
 [connection signal="pressed" from="CanvasLayer/StartButton" to="." method="_on_button_pressed"]

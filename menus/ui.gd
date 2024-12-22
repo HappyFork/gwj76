@@ -16,6 +16,7 @@ func _ready() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed( "pause" ):
 		if psd:
+			$Options/TabContainer.current_tab = 0
 			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 			get_tree().paused = false
 			psd = false

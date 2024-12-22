@@ -15,4 +15,6 @@ func _on_button_pressed():
 
 func _on_options_button_pressed():
 	$CanvasLayer/Options.visible = !$CanvasLayer/Options.visible
-	
+
+func _on_close_options_button_pressed():
+	$CanvasLayer/Options.visible = false

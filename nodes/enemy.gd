@@ -12,9 +12,9 @@ const GOOD_ENOUGH_ANGLE = 1.0
 const MAP_X = 35
 const MAP_Y = 2
 const MAP_Z = 15
-const HIT_NOISE = preload("res://Sound/SFX/GWJ 2.1_SnowBallHit.mp3")
-const FEAR_NOISE = preload("res://Sound/SFX/GWJ 2.1_PenguinNoise.mp3")
-const STEP_NOISES = [preload("res://Sound/SFX/GWJ 2.1_PenguinStep1.mp3"),preload("res://Sound/SFX/GWJ 2.1_PenguinStep2.mp3")]
+const HIT_NOISE = preload("res://assets/Sound/SFX/GWJ 2.1_SnowBallHit.mp3")
+const FEAR_NOISE = preload("res://assets/Sound/SFX/GWJ 2.1_PenguinNoise.mp3")
+const STEP_NOISES = [preload("res://assets/Sound/SFX/GWJ 2.1_PenguinStep1.mp3"),preload("res://assets/Sound/SFX/GWJ 2.1_PenguinStep2.mp3")]
 
 @export var player : Player
 
