@@ -6,7 +6,7 @@ var bounced = false
 
 func _on_body_entered(body: Node) -> void:
 	if body is Enemy:
-		body.change_state( body.States.FROZEN )
+		body._on_snowball_hit()
 		queue_free()
 	elif bounced:
 		queue_free()

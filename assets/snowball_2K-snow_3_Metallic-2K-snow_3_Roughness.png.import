@@ -4,8 +4,9 @@ importer="texture"
 type="CompressedTexture2D"
 uid="uid://bsp4piwen5s2t"
 path.s3tc="res://.godot/imported/snowball_2K-snow_3_Metallic-2K-snow_3_Roughness.png-b51a4d2598528553bca85ef8fb623308.s3tc.ctex"
+path.etc2="res://.godot/imported/snowball_2K-snow_3_Metallic-2K-snow_3_Roughness.png-b51a4d2598528553bca85ef8fb623308.etc2.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
+"imported_formats": ["s3tc_bptc", "etc2_astc"],
 "vram_texture": true
 }
 generator_parameters={
@@ -15,7 +16,7 @@ generator_parameters={
 [deps]
 
 source_file="res://assets/snowball_2K-snow_3_Metallic-2K-snow_3_Roughness.png"
-dest_files=["res://.godot/imported/snowball_2K-snow_3_Metallic-2K-snow_3_Roughness.png-b51a4d2598528553bca85ef8fb623308.s3tc.ctex"]
+dest_files=["res://.godot/imported/snowball_2K-snow_3_Metallic-2K-snow_3_Roughness.png-b51a4d2598528553bca85ef8fb623308.s3tc.ctex", "res://.godot/imported/snowball_2K-snow_3_Metallic-2K-snow_3_Roughness.png-b51a4d2598528553bca85ef8fb623308.etc2.ctex"]
 
 [params]
 

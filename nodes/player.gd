@@ -7,6 +7,9 @@ signal made_noise
 
 const SPEED = 10.0
 const JUMP_VELOCITY = 5.0
+const JUMP_NOISE = preload( "res://Sound/SFX/GWJ 2.1_BearJump.mp3" )
+const THROW_NOISE = preload("res://Sound/SFX/GWJ 2.1_SnowBallThrow.mp3")
+const STEP_NOISES = [preload("res://Sound/SFX/GWJ 2.1_BearStep1.mp3"),preload("res://Sound/SFX/GWJ 2.1_BearStep2.mp3")]
 
 @export var TILT_LIMIT := PI/2
 @export var TURN_DAMP = 250.0
@@ -20,6 +23,8 @@ var shoot_energy : float
 
 @onready var camera = $Camera3D
 @onready var facing = $Camera3D/Marker3D
+@onready var step_sfx = $StepPlayer
+@onready var other_sfx = $ThrowJumpPlayer
 
 
 
@@ -55,6 +60,8 @@ func _physics_process(delta):
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():
+		other_sfx.stream = JUMP_NOISE
+		other_sfx.play()
 		velocity.y = JUMP_VELOCITY
 
 	# Get the input direction and handle the movement/deceleration.
@@ -67,7 +74,11 @@ func _physics_process(delta):
 		velocity.x = move_toward(velocity.x, 0, SPEED)
 		velocity.z = move_toward(velocity.z, 0, SPEED)
 	
-	if input_dir != Vector2.ZERO:
+	if input_dir != Vector2.ZERO and !step_sfx.is_playing():
+		var sound : AudioStream = STEP_NOISES.pick_random()
+		step_sfx.pitch_scale = randf_range( 0.8, 1.2 )
+		step_sfx.stream = sound
+		step_sfx.play()
 		made_noise.emit()
 	move_and_slide()
 	
@@ -75,6 +86,8 @@ func _physics_process(delta):
 	if Input.is_action_just_released("shoot"):
 		throw_snowball() # Fire using built-up energy
 		shoot_energy = 0.0 # Reset shoot energy
+		other_sfx.stream = THROW_NOISE
+		other_sfx.play()
 		made_noise.emit()
 	elif Input.is_action_pressed( "shoot" ):
 		# Increase by an arbitrary amount
