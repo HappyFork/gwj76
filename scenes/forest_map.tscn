@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dku0rrf4y2ahh" path="res://assets/map_trimmed.tscn" id="1_r12vt"]
 [ext_resource type="PackedScene" uid="uid://sdmdnnq2vfb2" path="res://nodes/player.tscn" id="2_edl4u"]
 [ext_resource type="PackedScene" uid="uid://bfph3e74nk647" path="res://nodes/enemy.tscn" id="3_ej1nx"]
-[ext_resource type="PackedScene" uid="uid://bg0qlihrqay36" path="res://menus/ui.tscn" id="3_fuiv7"]
+[ext_resource type="PackedScene" uid="uid://dxlt0g0yjqgiw" path="res://menus/game_ui.tscn" id="5_jajyc"]
 [ext_resource type="AudioStream" uid="uid://dmr486gv2votb" path="res://assets/Sound/Music/GWJ 2.1_GameplayMusicFull.mp3" id="6_tf6f8"]
 [ext_resource type="Script" path="res://nodes/music_player.gd" id="6_ypgod"]
 
@@ -91,7 +91,7 @@ player = NodePath("../../Player")
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 16.7367, 4.05952, -11.1295)
 player = NodePath("../../Player")
 
-[node name="UI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("3_fuiv7")]
+[node name="GameUI" parent="." node_paths=PackedStringArray("player") instance=ExtResource("5_jajyc")]
 player = NodePath("../Player")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -152,8 +152,6 @@ autoplay = true
 bus = &"Music"
 script = ExtResource("6_ypgod")
 
-[connection signal="go_gone" from="UI" to="." method="_on_ui_go_gone"]
-[connection signal="go_home" from="UI" to="." method="_on_ui_go_home"]
-[connection signal="pressed" from="CanvasLayer/ColorRect/MenuButton" to="." method="_on_ui_go_home"]
-[connection signal="pressed" from="CanvasLayer/ColorRect/QuitButton" to="." method="_on_ui_go_gone"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/MenuButton" to="." method="_on_menu_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/ColorRect/QuitButton" to="." method="_on_quit_button_pressed"]
 [connection signal="finished" from="MusicPlayer" to="MusicPlayer" method="_on_finished"]

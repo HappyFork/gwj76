@@ -64,3 +64,4 @@ billboard = 1
 [connection signal="body_entered" from="Awareness" to="." method="_on_awareness_body_entered"]
 [connection signal="body_exited" from="Awareness" to="." method="_on_awareness_body_exited"]
 [connection signal="area_entered" from="Touching" to="." method="_on_touching_area_entered"]
+[connection signal="area_exited" from="Touching" to="." method="_on_touching_area_exited"]

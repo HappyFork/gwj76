@@ -40,10 +40,6 @@ func _unhandled_input(event):
 		mouse_motion += event.relative
 
 func _physics_process(delta):
-	# Get joypad look axis. Overwrite mouse input
-	var joyvect = Input.get_vector( "controller_look_left", "controller_look_right", "controller_look_up", "controller_look_down" )
-	if joyvect != Vector2.ZERO:
-		mouse_motion = joyvect
 	# Mouse rotate player
 	rotate_y( -mouse_motion.x / TURN_DAMP )
 	# Mouse tilt camera

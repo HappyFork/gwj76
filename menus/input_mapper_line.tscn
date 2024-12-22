@@ -7,14 +7,15 @@ offset_bottom = 31.0
 grow_horizontal = 2
 size_flags_horizontal = 3
 
-[node name="InputButton" type="Button" parent="."]
+[node name="Label" type="Label" parent="."]
 layout_mode = 2
-text = "Input Key"
+text = "Action Name"
 
 [node name="Control" type="Control" parent="."]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="."]
+[node name="InputButton" type="Button" parent="."]
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
-text = "Action Name"
+text = "Input Key"

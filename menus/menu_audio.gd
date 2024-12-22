@@ -1,4 +1,4 @@
-extends ColorRect
+extends Panel
 
 
 func _on_master_slide_value_changed(value):

@@ -20,6 +20,7 @@ const STEP_NOISES = [preload("res://assets/Sound/SFX/GWJ 2.1_PenguinStep1.mp3"),
 
 var state : States = States.WAITING
 var aware : Array[Node3D] = []
+var touching : Array[Node3D] = []
 var rescue_target : Enemy
 
 @onready var navagent := $NavigationAgent3D
@@ -175,14 +176,23 @@ func _on_awareness_body_exited(body: Node3D) -> void:
 func _on_touching_area_entered(area: Area3D) -> void:
 	#print( "On touching function running" )
 	var touched = area.get_parent()
-	if touched is Enemy and touched != self and touched.state == States.RESCUING and state == States.FROZEN:
+	if touched is Enemy and touched != self:
+		touching.append( touched )
+	if touched.state != States.FROZEN and state == States.FROZEN:
 		decide( true )
+
+func _on_touching_area_exited(area):
+	while touching.has( area.get_parent() ):
+		touching.erase( area.get_parent() )
+
+
 
 func _on_snowball_hit():
 	if !sfx.is_playing() or sfx.stream in STEP_NOISES:
 		sfx.stream = HIT_NOISE
 		sfx.play()
-	change_state( States.FROZEN )
+	if touching.is_empty():
+		change_state( States.FROZEN )
 
 func _on_player_made_noise():
 	#print( "On player noise running" )
