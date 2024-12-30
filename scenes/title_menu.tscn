@@ -1,0 +1,65 @@
+[gd_scene load_steps=2 format=3 uid="uid://buwo0s3txapew"]
+
+[ext_resource type="PackedScene" uid="uid://bkccvlxk5h4vo" path="res://menus/options.tscn" id="1_dw28u"]
+
+[node name="TitleMenu" type="Node3D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Title&Buttons" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/Title&Buttons"]
+layout_mode = 0
+offset_left = 90.0
+offset_top = 220.0
+offset_right = 290.0
+offset_bottom = 280.0
+color = Color(0.411765, 0.411765, 0.411765, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/Title&Buttons/ColorRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -11.5
+offset_right = 43.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Freezy Tag!"
+
+[node name="StartButton" type="Button" parent="CanvasLayer/Title&Buttons"]
+layout_mode = 0
+offset_left = 167.0
+offset_top = 310.0
+offset_right = 213.0
+offset_bottom = 341.0
+text = "Start"
+
+[node name="OptionsButton" type="Button" parent="CanvasLayer/Title&Buttons"]
+layout_mode = 0
+offset_left = 155.0
+offset_top = 370.0
+offset_right = 225.0
+offset_bottom = 401.0
+text = "Options"
+
+[node name="OptionsButton2" type="Button" parent="CanvasLayer/Title&Buttons"]
+layout_mode = 0
+offset_left = 158.0
+offset_top = 430.0
+offset_right = 222.0
+offset_bottom = 461.0
+text = "Credits"
+
+[node name="Options" parent="CanvasLayer" instance=ExtResource("1_dw28u")]
+offset_left = 308.0
