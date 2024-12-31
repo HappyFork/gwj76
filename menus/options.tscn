@@ -202,12 +202,13 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/margin_left = 50
-theme_override_constants/margin_top = 50
+theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 50
-theme_override_constants/margin_bottom = 50
+theme_override_constants/margin_bottom = 40
 
 [node name="GridContainer" type="GridContainer" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer"]
 layout_mode = 2
+theme_override_constants/v_separation = 5
 columns = 3
 
 [node name="Label" type="Label" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
@@ -227,6 +228,95 @@ layout_mode = 2
 size_flags_horizontal = 3
 text = "Controller"
 horizontal_alignment = 1
+
+[node name="Label4" type="Label" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Forward"
+
+[node name="Button" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Keyboard"
+
+[node name="Button2" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Controller"
+
+[node name="Label5" type="Label" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Backward"
+
+[node name="Button3" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Keyboard"
+
+[node name="Button4" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Controller"
+
+[node name="Label6" type="Label" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Left"
+
+[node name="Button5" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Keyboard"
+
+[node name="Button6" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Controller"
+
+[node name="Label7" type="Label" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Right"
+
+[node name="Button7" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Keyboard"
+
+[node name="Button8" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Controller"
+
+[node name="Label8" type="Label" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Jump"
+
+[node name="Button9" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Keyboard"
+
+[node name="Button10" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Controller"
+
+[node name="Label9" type="Label" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Shoot"
+
+[node name="Button11" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Keyboard"
+
+[node name="Button12" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Controller"
+
+[node name="Control" type="Control" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Control2" type="Control" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+
+[node name="Control3" type="Control" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Control4" type="Control" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+
+[node name="Button13" type="Button" parent="CenterContainer/ColorRect/TabContainer/Controls/MarginContainer/GridContainer"]
+layout_mode = 2
+text = "Restore Defaults"
 
 [node name="Credits" type="Control" parent="CenterContainer/ColorRect/TabContainer"]
 visible = false
