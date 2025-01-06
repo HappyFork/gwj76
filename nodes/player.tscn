@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://7ad0t8g3081l"]
+
+[ext_resource type="Script" path="res://nodes/player.gd" id="1_tngp7"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_vu1h2"]
+
+[node name="Player" type="CharacterBody3D"]
+script = ExtResource("1_tngp7")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("CapsuleShape3D_vu1h2")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Marker3D" type="Marker3D" parent="Camera3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -1)
+
+[node name="ThrowJump" type="AudioStreamPlayer" parent="."]
+
+[node name="Step" type="AudioStreamPlayer" parent="."]

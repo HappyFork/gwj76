@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqax25bhe3cab"]
+
+[ext_resource type="PackedScene" uid="uid://ddxx4tu31koyt" path="res://assets/map new.blend" id="1_xeax1"]
+
+[node name="map new" instance=ExtResource("1_xeax1")]
+
+[node name="Sun" parent="." index="1"]
+light_energy = 2.0
+
+[node name="Pine_29" parent="." index="6"]
+visible = false
+
+[node name="Pine_49" parent="." index="7"]
+visible = false
+
+[node name="Snowy_pine_29" parent="." index="8"]
+visible = false
+
+[node name="Tree_19" parent="." index="9"]
+visible = false
+
+[node name="Tree_29" parent="." index="10"]
+visible = false
+
+[node name="Tree_59" parent="." index="11"]
+visible = false
+
+[node name="Snowy_tree_19" parent="." index="12"]
+visible = false
+
+[node name="Snowy_tree_59" parent="." index="13"]
+visible = false
+
+[node name="Snowy_pine_59" parent="." index="14"]
+visible = false
+
+[node name="Snowy_pine_69" parent="." index="15"]
+visible = false
+
+[node name="Log_0039" parent="." index="16"]
+visible = false
+
+[node name="properDaggerfallWinterAssetsObj_0017" parent="." index="17"]
+visible = false
+
+[node name="properDaggerfallWinterAssetsObj_0031001" parent="." index="18"]
+visible = false
+
+[node name="properDaggerfallWinterAssetsObj_0041001" parent="." index="19"]
+visible = false

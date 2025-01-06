@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://delsporsagaoo"]
+
+[ext_resource type="PackedScene" uid="uid://ddxx4tu31koyt" path="res://assets/map new.blend" id="1_s6kvc"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_mcqg3"]
+sky_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+ground_horizon_color = Color(0.64625, 0.65575, 0.67075, 1)
+
+[sub_resource type="Sky" id="Sky_xc5km"]
+sky_material = SubResource("ProceduralSkyMaterial_mcqg3")
+
+[sub_resource type="Environment" id="Environment_5la1j"]
+background_mode = 2
+sky = SubResource("Sky_xc5km")
+tonemap_mode = 2
+glow_enabled = true
+
+[node name="map new" instance=ExtResource("1_s6kvc")]
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." index="0"]
+environment = SubResource("Environment_5la1j")
+
+[node name="Sun" parent="." index="2"]
+light_energy = 2.0
+shadow_enabled = true
+
+[node name="Tree_19" parent="." index="10"]
+visible = false
+
+[node name="Tree_59" parent="." index="12"]
+visible = false
+
+[node name="Snowy_tree_19" parent="." index="13"]
+visible = false
+
+[node name="Snowy_tree_59" parent="." index="14"]
+visible = false
+
+[node name="Snowy_pine_59" parent="." index="15"]
+visible = false
+
+[node name="Snowy_pine_69" parent="." index="16"]
+visible = false
+
+[node name="Log_0039" parent="." index="17"]
+visible = false
+
+[node name="properDaggerfallWinterAssetsObj_0017" parent="." index="18"]
+visible = false
+
+[node name="properDaggerfallWinterAssetsObj_0031001" parent="." index="19"]
+visible = false
+
+[node name="properDaggerfallWinterAssetsObj_0041001" parent="." index="20"]
+visible = false
